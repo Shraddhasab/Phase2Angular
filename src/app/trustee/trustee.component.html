@@ -1,0 +1,52 @@
+<form #trusteeForm="ngForm" (ngSubmit)="subData(trusteeForm)" >
+    
+    <div class="form-group">
+    <p>
+        <label  for="id">ID:</label>
+        <input class="form-control" #id="ngModel" type="number" name="id" id="id" required min="1"   [(ngModel)]="trust.id">
+    </p>
+    <div *ngIf="!id.valid && ( id.dirty || id.touched)" class="error">
+        <div *ngIf="id.errors?.['required']">ID is Required</div>
+        <div *ngIf="id.errors?.['min']">Min ID can be 1</div>
+        
+    </div>
+    
+    <p>
+        <label for="name">Name:</label>
+        <input class="form-control" #firstname="ngModel" type="text" name="name" id="name" required minlength="3" [(ngModel)]="trust.name">
+    </p>
+    <div *ngIf="!firstname.valid && ( firstname.dirty || firstname.touched)" class="error">
+        <div *ngIf="firstname.errors?.['required']">Name is Required</div>
+        <div *ngIf="firstname.errors?.['minlength']">Min Length should be of 3 chars</div>
+    </div>
+    <br>
+    <p>
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" id="gender" [checked]="trust.gender=='Male'">Male
+        <input type="radio" name="gender" id="gender"[checked]="trust.gender=='Female'" >Female
+    </p>
+    <p>
+        <label for="country">Country:</label>
+        <select #country name="country" id="country" required >
+            <option [selected]="c.name==trust.countryOfResidence" [ngValue]="c.id" *ngFor="let c of countries">{{c.name}}</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="passport">Passport:</label>
+        <input class="form-control" type="text" name="passport" id="passport" required [(ngModel)]="trust.passport">
+    </p>
+    <p>
+        <label for="date">Date:</label>
+        <input class="form-control"  type="date" name="date" id="date" required [(ngModel)]="trust.issuanceDate">
+    </p>
+
+    <p>
+        <label for="num">Number Of Dependents:</label>
+        <input class="form-control" type="number" name="num" id="num" required  [(ngModel)]="trust.noOfDependents">
+    </p>
+    <button type="reset"  class="btn btn-danger" >Reset</button>
+    <button type="submit" class="btn btn-success" [disabled]="trusteeForm.invalid">Submit</button>
+    </div>
+
+</form>
