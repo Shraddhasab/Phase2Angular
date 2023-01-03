@@ -33,13 +33,13 @@ export class AnimalListComponent {
   id:"102",
   name:"Lion",
   briefDescription:"Jungle King",
-  imageUrl:"../../assets/Lion_waiting_in_Namibia.jpg"
+  imageUrl:"../../assets/images.jpg"
 },
 {
   id:"103",
   name:"Elephant",
   briefDescription:"The only animal who can't jump",
-  imageUrl:"../../assets/African-savanna-elephant.webp"
+  imageUrl:"../../assets/images.jpg"
 }
   ]
 
