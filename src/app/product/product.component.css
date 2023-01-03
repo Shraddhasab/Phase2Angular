@@ -1,0 +1,25 @@
+img{
+    height: 50px;
+    width: 50px;
+}
+h1{
+    text-align: center;
+    background-color: grey;
+}
+thead{
+    color: black;
+}
+
+img:hover{
+    transform: scale(2);
+}
+.container{
+    display: flex;
+}
+.productList{
+    flex:60%
+}
+.shoppingCart{
+    margin-left:2%;
+    flex:40%;
+}
