@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+        
+<div class="card" style="width: 18rem;" >
+   
+    <div class="card-body" *ngFor="let event of eventList">
+        
+      <h5 > {{event.id}}</h5>
+      <h5>{{event.name}}</h5>
+      <h5>{{event.date}}</h5>
+      <h5>{{event.time}}</h5>
+      <h5>{{event.price | currency:'INR'}}</h5>
+
+      
+    </div>
+  </div>
+    
+  <!-- <button (click)="addData()">Click To Add</button> -->
+  <button (click)="showData()">Show Data</button>
+
+</body>
+</html>
