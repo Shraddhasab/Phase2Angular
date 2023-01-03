@@ -1,0 +1,36 @@
+<form #empForm="ngForm" (ngSubmit)="onSubmit(empForm)">
+    <p>
+        <label for="firstname">FirstName</label>
+        <input type="text"   #firstname="ngModel"  name="firstname"  required  minlength="3" maxlength="15" id="firstname" ngModel>
+    </p>
+    <div *ngIf="!firstname.valid && ( firstname.dirty || firstname.touched)" class="error">
+        <div *ngIf="firstname.errors?.['required']">FirstName is Required</div>
+        <div *ngIf="firstname.errors?.['minlength']">Min Length should be of 3 chars</div>
+    </div>
+    <p>
+        <label for="lastname">LastName</label>
+        <input type="text" #lastname="ngModel"  name="lastname" id="lastname" ngModel>
+    </p>
+
+    <p>
+        <label for="id">ID</label>
+        <input type="text" #id="ngModel" name="id" id="id" ngModel >
+    </p>
+    
+    <p>
+        <label for="country">Country</label>
+        <select #country name="country" id="country" required>
+            <option [ngValue]="c.id" *ngFor="let c of countries">{{c.name}}</option>
+        </select>
+    </p>
+
+    <button  type="submit" id="submit" [disabled]="empForm.invalid">Submit</button>
+
+
+
+
+</form>
+
+
+{{empForm.value | json}} <br>
+{{empForm.invalid}}
