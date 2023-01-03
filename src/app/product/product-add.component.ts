@@ -12,11 +12,6 @@ import { Category, Product } from './product.component';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit ,OnDestroy{
-
-  // constructor(private productService:ProductService){}
-  
-  
-
   product:Product|null={
     id:0,
     name:"",
@@ -110,7 +105,7 @@ export class ProductAddComponent implements OnInit ,OnDestroy{
 
           this.product = productParam;
           if(this.product){
-       //reset the form to its original
+      
            this.addProduct.reset();
        
            if(this.product.id==0){
@@ -143,9 +138,7 @@ export class ProductAddComponent implements OnInit ,OnDestroy{
 
     if(this.addProduct.valid){
       if(this.addProduct.dirty){
-        //copy over all of the orginal product properties
-        //we arecopying data from teh addform
-        //{...} it ensures that values are not lost ids are retained
+        
         const product={...originalProduct,...this.addProduct.value};
 
       if(product.id===0){
@@ -168,13 +161,6 @@ export class ProductAddComponent implements OnInit ,OnDestroy{
     }
     this.router.navigate(['products'])
   }
-
-
-
-
-
-
-
 
 
 
