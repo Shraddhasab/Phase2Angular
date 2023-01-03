@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="productList">
+    <h1>Product List</h1>
+    <h2>{{title}}</h2>
+    <div class="input-group mb-3">
+    
+        <input type="text"  (keyup)="filter()" [(ngModel)]="inp" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+    <table class="table table-dark">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Rating</th>
+            <th>Category</th>
+           
+        </thead>
+        <tbody *ngFor="let product of filteredList;">
+            <tr>
+                <td >{{product.id }}</td>
+                <td (click)="productSelected(product)">{{product.name | uppercase}}</td>
+                <td>{{product.price | currency:'INR'}}</td>
+                <td><img src="{{product.imageUrl}}"></td>
+                <td> <app-star 
+                    [rating]="product.rating"
+                    ></app-star> </td>
+                <td>{{product.category}}</td>
+                <!-- <td> <button (click)="outputEvent(product)" >Add To Cart</button> </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <div class="shoppingCart">
+    <app-shopping-cart [product1]="productSend"></app-shopping-cart>
+</div> -->
+
+
+
+</div>
+<div class="card-footer">
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary"
+      (click)="newProduct()">Add a Product</button>
+
+    </div>
+  </div>
+
+
+
+<router-outlet></router-outlet>
+    
+</body>
+</html>
