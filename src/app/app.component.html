@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+   <!-- <h1>Hello World</h1> -->
+<!--
+<div class="container">
+<div>
+  <pent-houseCompo></pent-houseCompo>
+</div>
+<div> -->
+  <!-- <app-welcome></app-welcome> -->
+  <!--
+</div>
+</div>
+<app-flag-list></app-flag-list> -->
+<!-- <app-animal-list></app-animal-list> -->
+
+
+ <!-- <app-product></app-product>  -->
+
+<!-- <app-navbar></app-navbar> -->
+
+<!-- <app-event-boot> -->
+  
+<!-- </app-event-boot> -->
+
+<!-- <app-employee></app-employee>
+ -->
+
+ <!-- <app-trustee></app-trustee> -->
+
+ <!-- <app-reactive-form-example></app-reactive-form-example> -->
+
+ <!-- <app-employee-reactive></app-employee-reactive> -->
+
+
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#" >My App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['student']" [routerLinkActive]='["active"]'>Student<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['dashboard']"  [routerLinkActive]='["active"]'>Dashboard</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['products']" routerLink="active">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['emps']" routerLink="active">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['about-us']" routerLink="active">About Us</a>
+        </li>
+        
+
+      </ul>
+  </div>
+
+</nav>
+
+
+ <router-outlet>   </router-outlet>
+  
+</body>
+</html>
