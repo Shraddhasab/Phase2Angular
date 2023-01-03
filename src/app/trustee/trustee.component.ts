@@ -27,7 +27,7 @@ export class TrusteeComponent {
     new Country("3","Russia")
   ];
 
-   trust:ITrustee={id:1,name:'Vansh',gender:'Male',countryOfResidence:'Japan', passport: 'B?RHJHJ8' , issuanceDate:new Date,noOfDependents:4};
+   trust:ITrustee={id:1,name:'shraddha',gender:'Female',countryOfResidence:'Japan', passport: 'B?RHJHJ8' , issuanceDate:new Date,noOfDependents:4};
 
    subData(form:NgForm){
     if(form.invalid){
