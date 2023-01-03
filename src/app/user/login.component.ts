@@ -23,7 +23,7 @@ pageTitle:string='Log In';
     if(loginForm && loginForm.valid){
       const username = loginForm.form.value.userName;
       const password=loginForm.form.value.password;
-   //this user is logged in
+
       this.authService.login(username,password);
 
       if(this.authService.redirectToUrl){
