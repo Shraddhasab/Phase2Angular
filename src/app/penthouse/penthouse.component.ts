@@ -8,6 +8,6 @@ import { Component } from "@angular/core";
 export class PentHouseComponent2{
 
      title="hello";
-     name="ram"
+     name="shraddha"
 
 }
