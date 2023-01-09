@@ -1,0 +1,112 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header"   >
+            Animal List
+       </div>
+        <div class="card-body">
+            <input type="text"  #numR [(ngModel)]="animalAge"/>
+            <h1>Filtered as per age: {{animalAge}}</h1>
+        <div class="table-responsive">
+            <table *ngIf="animals.length" class="table table-light table-responsive">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">name</th>
+                      <th scope="col">description</th>
+                      <th scope="col">age</th>
+                      <th scope="col">
+                        <button class="btn btn-dark"
+                        (click)="imageVisibility()">{{showImage ? 'Hide' : 'Show'}} Image</button>
+                        </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr  *ngFor="let animal of animals;let i = index">
+                      <td>{{i+1}}</td>
+                     
+                        <td><a [routerLink]="['detail',animal.id]">{{animal.name}}</a></td>
+                        <td>{{animal.description}}</td>
+                        <td>{{animal.age}}</td>
+                        <td><img *ngIf="showImage"
+                            [src]='animal.imageUrl'
+                            title="I am {{animal.age}} years old"
+                            [style.margin.px]="imageMargin"
+                            /></td>
+                      </tr>
+                  </tbody>
+                </table>
+        </div>
+        </div> 
+        </div>
+        <br>
+        <button routerLink="website" class="btn btn-info" style="margin-left:550px;">To Know More</button>
+</body>
+</html>
+<router-outlet></router-outlet> -->
+
+
+
+
+<div class="card">
+  <div class="card-header">
+      {{pageTitle}}
+
+    </div>
+
+  <div class="card-body">
+
+  <div class="table-responsive">
+      <table *ngIf="animals.length;else elseBlock"   class="table table-dark">
+          <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+               <th scope="col">Description</th>
+                <th scope="col">Age</th>
+                <th scope="col">Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let animal of filteredAnimals;let i = index">
+                <td>{{i+1}}</td>
+                  <td (click)="animalSelected(animal)">{{animal.name}}</td>
+                 <td>{{animal.description}}</td>
+                 <td>{{animal.age}}</td>
+                   <td><img
+                    [src]='animal.imageUrl'
+                    [title]="animal.name"
+                    height="50px"
+                    width="50px"
+                    alt="image"
+                    /></td>
+                    
+                </tr>
+            </tbody>
+          </table>
+
+          <ng-template #elseBlock><h1>No animals</h1></ng-template>
+
+  </div>
+  <td><button class="btn btn-primary"
+    (click)="getAnimalById(animal.id)">Get Details</button>
+     </td>
+
+  </div>
+  <div class="card-footer">
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary"
+      (click)="newAnimal()">Data Manupulation</button>
+
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
