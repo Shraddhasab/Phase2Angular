@@ -1,0 +1,47 @@
+<div class="card"
+   *ngIf="animal">
+   <div class="card-header"><h2 class="text-center">{{pageTitle}}</h2></div>
+    <div class="card-body">
+    <form [formGroup]="addAnimal"
+     (ngSubmit)="saveAnimal(animal)">
+      <div class="form-group">
+        <label for="name">Animal Name:</label>
+        <input type="text" formControlName="name"
+        placeholder="Animal name"
+        (blur)="blur()"
+        name="name" class="form-control" id="name">
+      </div>
+
+      <div class="form-group">
+        <label for="description"> Description:</label>
+        <input type="text" formControlName="description"
+         placeholder="Description"
+         (blur)="blur()" name="description" class="form-control" id="description">
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">Image:</label>
+        <input (blur)="blur()" type="text" formControlName="imageUrl"
+        placeholder="Animal image" name="imageUrl" class="form-control" id="imageUrl">
+      </div>
+
+      <div class="form-group">
+        <label for="age"> Age:</label>
+        <input type="text" formControlName="age"
+         placeholder="age"
+         (blur)="blur()" name="age" class="form-control" id="color">
+      </div>
+      <br>
+    <div class="btns">
+      <div id="btn1">
+      <button class="btn btn-danger" type="button"
+          (click)="deleteAnimal(animal)">Delete Animal</button></div>
+      <div id="btn2">
+      <button [disabled]='!addAnimal.valid ||!addAnimal.dirty' class="btn btn-success">Save Animal</button></div>
+    </div>
+    </form>
+    </div>
+    <div class='alert alert-danger' *ngIf="errorMessage">
+      Error : {{errorMessage}}
+    </div>
+  </div>
